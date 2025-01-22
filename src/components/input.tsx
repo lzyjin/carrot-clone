@@ -1,19 +1,21 @@
+import {InputHTMLAttributes} from "react";
+
 interface FormInputProps {
-  type: string;
-  name: string;
-  placeholder: string;
-  required: boolean;
-  errors: string[];
+  name: string; // HTMLInputElement가 기본으로 가지는 어트리뷰트라서 안적어도 되지만, FormInput 컴포넌트를 사용하는 곳에서 name을 까먹지 않게 ts가 경고를 하기 위해 추가함
+  errors?: string[];
 }
 
-export default function FormInput({type, name, placeholder, required, errors}: FormInputProps) {
+export default function Input({
+  name,
+  errors = [],
+  ...rest
+}: FormInputProps & InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div className="flex flex-col gap-2">
       <input
-        type={type}
+        key={name}
         name={name}
-        placeholder={placeholder}
-        required={required}
+        {...rest}
         className="bg-transparent rounded-md w-full h-10 border-none transition
           focus:outline-none ring-1 ring-neutral-200 focus:ring-2 focus:ring-orange-500"
       />
