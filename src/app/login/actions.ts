@@ -46,7 +46,12 @@ export const login = async (prevState: any, formData: FormData) => {
 
   const result = await schema.safeParseAsync(data);
 
-  if (result.success) {
+  if (!result.success) {
+    // 실패
+    // console.log(result.error.flatten());
+    return result.error.flatten();
+
+  } else {
     // 성공
     // 입력한 이메일로 db에서 회원 찾기(일종의 유효성검사이므로 zod에서 refine으로 함)
     // 입력한 비밀번호를 해싱해서 해시된 비밀번호로 db와 일치하는지 확인
@@ -76,10 +81,6 @@ export const login = async (prevState: any, formData: FormData) => {
       };
     }
 
-  } else {
-    // 실패
-    // console.log(result.error.flatten());
-    return result.error.flatten();
   }
 
 };

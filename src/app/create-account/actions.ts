@@ -110,7 +110,11 @@ export const createAccount = async (prevState: any, formData: FormData) => {
 
   const result = await schema.safeParseAsync(data);
 
-  if (result.success) {
+  if (!result.success) {
+    console.log(result.error.flatten());
+    return result.error.flatten();
+
+  } else {
     // 이름과 이메일이 데이터베이스에 존재하는지 확인(zod에서 refine으로 확인) -> 둘 다 존재하지 않으면 계정생성 진행
     // 이 공간은 유효성 검사가 모두 끝난 행복한 공간이다!
 
@@ -135,9 +139,5 @@ export const createAccount = async (prevState: any, formData: FormData) => {
 
     // 홈으로 리다이렉트
     redirect("/profile");
-
-  } else {
-    console.log(result.error.flatten());
-    return result.error.flatten();
   }
 };
