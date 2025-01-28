@@ -11,7 +11,7 @@ import {
 import db from "@/lib/db";
 import bcrypt from "bcrypt";
 import {redirect} from "next/navigation";
-import getSession from "@/lib/session";
+import {sessionLogin} from "@/lib/utils";
 
 const checkPassword = (
   {password, confirm_password}: {password: string, confirm_password: string}
@@ -128,13 +128,10 @@ export const createAccount = async (prevState: any, formData: FormData) => {
         id: true,
       }
     });
-    console.log(user);
+    // console.log(user);
 
     // 사용자 로그인 시킴(로그인 = 사용자에게 쿠키 줌 = 세션에 암호화한 사용자 아이디를 담은 쿠키 저장)
-    const session = await getSession();
-    session.id = user.id;
-
-    await session.save();
+    await sessionLogin(user.id);
 
     // 홈으로 리다이렉트
     redirect("/profile");

@@ -6,8 +6,8 @@ import {z} from "zod";
 import {PASSWORD_MIN_LENGTH, PASSWORD_MIN_LENGTH_ERROR, PASSWORD_REGEX, PASSWORD_REGEX_ERROR} from "@/lib/constants";
 import db from "@/lib/db";
 import bcrypt from "bcrypt";
-import getSession from "@/lib/session";
 import {redirect} from "next/navigation";
+import {sessionLogin} from "@/lib/utils";
 
 const checkEmailExists = async (email: string) => {
   const user = await db.user.findUnique({
@@ -60,13 +60,12 @@ export const login = async (prevState: any, formData: FormData) => {
       },
     });
     const ok = await bcrypt.compare(result.data.password, user!.password ?? "");
-    console.log(ok);
+    // console.log(ok);
 
     // 일치하면 로그인되어 /profile로 리다이렉트
     if (ok) {
-      const session = await getSession();
-      session.id = user!.id;
-      await session.save();
+      await sessionLogin(user!.id);
+
       redirect("/profile");
     } else {
       return {

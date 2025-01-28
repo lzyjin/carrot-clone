@@ -1,7 +1,7 @@
 import {NextRequest} from "next/server";
 
 export async function GET(request: NextRequest) {
-  console.log(request);
+  // console.log(request);
 
   return Response.json({
     ok: true,
@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const data = await request.json();
 
-  console.log("유저 로그인 시킴")
+  // console.log("유저 로그인 시킴")
 
   return Response.json(data);
 }
