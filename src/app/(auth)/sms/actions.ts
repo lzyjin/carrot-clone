@@ -9,7 +9,7 @@ import crypto from "crypto";
 // import twilio from "twilio";
 import { Vonage } from "@vonage/server-sdk";
 import { Auth } from "@vonage/auth";
-import {sessionLogin} from "@/lib/utils";
+import {sessionLogin} from "@/lib/session";
 
 async function tokenExists(token: number) {
   const exists = await db.sMSToken.findUnique({

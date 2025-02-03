@@ -11,3 +11,9 @@ export default async function getSession() {
     password: process.env.COOKIE_PASSWORD!,
   });
 }
+
+export async function sessionLogin(id: number) {
+  const session = await getSession();
+  session.id = id;
+  await session.save();
+}

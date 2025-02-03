@@ -4,7 +4,7 @@ import {useFormState} from "react-dom";
 import Input from "@/components/input";
 import SocialLogin from "@/components/social-login";
 import Button from "@/components/button";
-import {login} from "@/app/login/actions";
+import {login} from "@/app/(auth)/login/actions";
 
 export default function Login() {
   // login(form의 action)의 결과를 바탕으로 상태를 업데이트하기 위해 사용

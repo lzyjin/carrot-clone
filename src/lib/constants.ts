@@ -11,3 +11,5 @@ export const USERNAME_MAX_LENGTH_ERROR = `${USERNAME_MAX_LENGTH}자 이내로 �
 
 export const SMS_TOKEN_MIN = 100000;
 export const SMS_TOKEN_MAX = 999999;
+
+export const PRODUCT_LIST_COUNT = 7;

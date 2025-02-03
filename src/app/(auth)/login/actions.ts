@@ -7,7 +7,7 @@ import {PASSWORD_MIN_LENGTH, PASSWORD_MIN_LENGTH_ERROR, PASSWORD_REGEX, PASSWORD
 import db from "@/lib/db";
 import bcrypt from "bcrypt";
 import {redirect} from "next/navigation";
-import {sessionLogin} from "@/lib/utils";
+import {sessionLogin} from "@/lib/session";
 
 const checkEmailExists = async (email: string) => {
   const user = await db.user.findUnique({

@@ -11,7 +11,7 @@ import {
 import db from "@/lib/db";
 import bcrypt from "bcrypt";
 import {redirect} from "next/navigation";
-import {sessionLogin} from "@/lib/utils";
+import {sessionLogin} from "@/lib/session";
 
 const checkPassword = (
   {password, confirm_password}: {password: string, confirm_password: string}

@@ -5,8 +5,11 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "당근 클론",
-  description: "당근 클론코딩입니다.",
+  title: {
+    template: "%s | Carrot",
+    default: "Carrot",
+  },
+  description: "모든 것을 사고 파세요.",
 };
 
 export default function RootLayout({

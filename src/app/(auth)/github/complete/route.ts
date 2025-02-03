@@ -1,7 +1,7 @@
 import {NextRequest} from "next/server";
 import {redirect} from "next/navigation";
 import db from "@/lib/db";
-import {sessionLogin} from "@/lib/utils";
+import {sessionLogin} from "@/lib/session";
 
 async function getAccessToken(code: string) {
   const params = {

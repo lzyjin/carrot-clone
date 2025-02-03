@@ -9,7 +9,7 @@ export default function SocialLogin() {
         <span className="relative z-10 bg-neutral-900 px-3 text-neutral-300">또는</span>
       </div>
       <div className="flex flex-col gap-3">
-        <Link href="/github/start" className="primary-btn flex h-10 items-center justify-center gap-3">
+        <Link href="/src/app/(auth)/github/start" className="primary-btn flex h-10 items-center justify-center gap-3">
           <svg
             className="size-6"
             viewBox="0 0 15 15"
