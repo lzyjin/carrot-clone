@@ -22,7 +22,7 @@ export default function ProductItem({
   return (
     <Link href={`/products/${id}`} className="flex gap-5">
       <div className="relative size-28 rounded-md overflow-hidden">
-        <Image src={photo} alt={title} fill className="object-cover" />
+        <Image src={`${photo}/smaller`} alt={title} fill className="object-cover" />
       </div>
       <div className="flex flex-col gap-1 text-white">
         <div>{title}</div>

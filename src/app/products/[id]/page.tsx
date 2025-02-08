@@ -62,7 +62,7 @@ export default async function ProductDetail({params}: {params: {id: string}}) {
   return (
     <div className="p-5 pb-32 flex flex-col gap-5">
       <div className="w-full aspect-square 4 rounded-md relative">
-        <Image src={product.photo} alt={product.title} fill className="object-cover" />
+        <Image src={`${product.photo}/public`} alt={product.title} fill className="object-cover" />
       </div>
       <div className="flex gap-2 items-center">
         <div className="size-14 rounded-full flex justify-center items-center bg-neutral-700 overflow-hidden relative">
